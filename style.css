@@ -1,6 +1,15 @@
 html,body {
     padding: 0;
     margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active{
+    color: white;
+    text-decoration: none;
 }
 header {
     width: 100%;
@@ -8,10 +17,35 @@ header {
     background: #000000;
     position: relative; 
 }
-ul.menu {
-    display: none;
+
+
+.site-nav {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    background: #000000;
+    color: #FFFFFF;
+    height: 0;
+    overflow: hidden;
 }
-.menu-toogle {
+
+.site-nav-open {
+    height: auto;
+}
+
+
+ul.menu {
+    list-style-type: none;
+    padding: 0 30px;
+    text-transform: uppercase;
+}
+ul.menu li {
+    padding: 10px 10px;
+
+}
+
+.menu-toggle {
     background: #000000;
     padding: 23px;
     position: absolute;
@@ -29,6 +63,8 @@ ul.menu {
     height: 3px;
     width: 30px;
     border-radius: 3px;
+    transition: all ease-in-out 500ms;
+
 }
 
 .hamburger::before {
@@ -39,6 +75,15 @@ ul.menu {
     transform: translateY(3px);
 }
 
-nav.site-nav-open ul.menu {
-    display: block;
+/* When .hamburger is inside something with .open */
+.open .hamburger {
+    transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+    opacity: 0;
+}
+
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
 }
